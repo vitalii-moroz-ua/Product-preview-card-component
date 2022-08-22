@@ -1,0 +1,218 @@
+:root {
+  /* colors */
+  --accent: hsl(158, 36%, 37%);
+  --bg-light: hsl(30, 38%, 92%);
+  --button-bg-active: hsla(158, 36%, 37%, 0.815);
+  --button-bg-hover: hsl(158, 38%, 24%);
+  --button-bg: hsl(158, 36%, 37%);
+  --button: hsl(0, 0%, 100%);
+  --card-bg: hsl(0, 0%, 100%);
+  --heading-dark: hsl(212, 21%, 14%);
+  --primary-dark: hsl(228, 12%, 48%);
+  --primary-light: hsl(0, 0%, 100%);
+
+  /* fonts */
+  --montserrat: "Montserrat", sans-serif;
+  --fraunces: "Fraunces", serif;
+}
+/* reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* general styling */
+body {
+  align-items: center;
+  background-color: var(--bg-light);
+  color: var(--primary-dark);
+  display: flex;
+  font-family: var(--montserrat);
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+.container {
+  background-color: var(--card-bg);
+  border-top-left-radius: 0.625em;
+  border-top-right-radius: 0.625em;
+  height: 37.5rem;
+  overflow: hidden;
+  width: 21.5rem;
+}
+
+.image-box {
+  height: 40%;
+  overflow: hidden;
+  width: 100%;
+}
+.product-image {
+  align-items: center;
+  background-image: url(images/image-product-mobile.jpg);
+  background-size: cover;
+  border-top-left-radius: 0.625em;
+  border-top-right-radius: 0.625em;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.product-image:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.product-image::after {
+  background-color: hsla(0, 0%, 100%, 0.299);
+  color: var(--heading-dark);
+  content: "Made with love";
+  font-weight: 500;
+  line-height: 1.6;
+  opacity: 0;
+  padding-bottom: 25rem;
+  padding-top: 25rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  text-align: center;
+  text-shadow: 0 0 5px hsl(0, 0%, 100%);
+  text-transform: uppercase;
+  transform: scale(2.3);
+  transition: all 0.3s ease;
+}
+
+.product-image:hover::after {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.card {
+  padding: 1.5em;
+}
+
+.card__type {
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.card__name {
+  color: var(--heading-dark);
+  font-family: var(--fraunces);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  margin-top: 0.7rem;
+}
+
+.card__discription {
+  line-height: 1.5;
+}
+.card__price {
+  display: flex;
+}
+.card__price-new {
+  color: var(--accent);
+  font-family: var(--fraunces);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 1.2rem;
+}
+.card__price-old {
+  align-self: center;
+  font-family: var(--montserrat);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.card__button {
+  align-items: center;
+  background-color: var(--button-bg);
+  border-radius: 0.625rem;
+  border: 0;
+  color: var(--button);
+  display: flex;
+  font-family: var(--montserrat);
+  font-weight: 600;
+  gap: 0.5rem;
+  height: 3.5em;
+  justify-content: center;
+  width: 100%;
+}
+
+.card__button:hover {
+  cursor: pointer;
+  background-color: var(--button-bg-hover);
+}
+
+.card__button:active {
+  background-color: var(--button-bg-active);
+}
+/* style for very narrow phones */
+@media (max-width: 18.75rem) {
+  .container {
+    height: 97vh;
+    width: 95%;
+  }
+  .card__name {
+    font-size: 1.6rem;
+  }
+
+  .image-box {
+    height: 40%;
+    width: 100%;
+  }
+
+  .product-image {
+    height: 100%;
+    width: 100%;
+  }
+}
+/*  desktop style*/
+@media (min-width: 43.75rem) {
+  .container {
+    background-color: var(--card-bg);
+    border-radius: 0.625em;
+    display: flex;
+    height: 28.25rem;
+    width: 37.5rem;
+  }
+
+  .image-box {
+    height: 100%;
+    width: 18.75rem;
+  }
+
+  .product-image {
+    background-image: url(images/image-product-desktop.jpg);
+    background-size: cover;
+    border-bottom-left-radius: 0.625em;
+    border-top-right-radius: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .card {
+    height: 100%;
+    padding: 2rem;
+    width: 18.75rem;
+  }
+  .card__price {
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  .card__button {
+  }
+}
+
+/* prevent animation while screen resizing */
+.resize-animation-stopper * {
+  transition: none !important;
+}
